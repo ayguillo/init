@@ -1,0 +1,1 @@
+getent passwd | cut -f1 -d:
