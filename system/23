@@ -1,0 +1,1 @@
+En ssh il suffit de taper la commande sudo /etc/init.d/ssh start "nom d'utilisateur". Pour la session graphique c'est la commande su qui nous le permet
