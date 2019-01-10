@@ -7,7 +7,9 @@ then
 	read -p "User $userdel delete ? Confirm whit o/n : " confirm
 	if [ "$confirm" == "o" ]
 	then
-		killall -KILL -u $userdel
+		passwd -l $userdel
+		killall -KILL -u $userdel;
+		userdel -r $userdel
 	else
 		echo "Process abort"
 	fi
