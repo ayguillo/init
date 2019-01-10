@@ -2,15 +2,15 @@
 
 read -p "entrer un nom d'utilisateur a supprimer : " userdel
 
-who | grep $userdel 
 if [ -n "$(who | grep $userdel)" ]
 then
-	read -p "User $userdel delete confirm O/n" confirm
-	if confirm = O
+	read -p "User $userdel delete ? Confirm whit o/n : " confirm
+	if [ "$confirm" == "o" ]
 	then
 		killall -KILL -u $userdel
 	else
 		echo "Process abort"
+	fi
 else
 	echo "User does not exist or not connect"
 fi
