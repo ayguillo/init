@@ -1,18 +1,27 @@
 #!/bin/bash
 
-read -p "entrer un nom d'utilisateur a supprimer : " userdel
+read -p "entrer un nom d'utilisateur a supprimer : " userd
 
-if [ -n "$(who | grep $userdel)" ]
+if [ -z $userd ]
 then
-	read -p "User $userdel delete ? Confirm whit o/n : " confirm
+	echo "No user"
+	exit
+fi
+
+if [ -n "$(who | grep $userd)" ]
+then
+	read -p "User $userd delete ? Confirm whit o/n : " confirm
 	if [ "$confirm" == "o" ]
 	then
-		passwd -l $userdel
-		killall -KILL -u $userdel;
-		userdel -r $userdel
+		sudo killall -KILL -u $userd;
+		sudo userdel -r $userd;
+		echo "user $userd deleted"
+		exit
 	else
 		echo "Process abort"
+		exit
 	fi
 else
 	echo "User does not exist or not connect"
+	exit
 fi
