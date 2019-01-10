@@ -1,0 +1,16 @@
+#!/bin/bash
+
+read -p "entrer un nom d'utilisateur a supprimer : " userdel
+
+who | grep $userdel 
+if [ -n "$(who | grep $userdel)" ]
+then
+	read -p "User $userdel delete confirm O/n" confirm
+	if confirm = O
+	then
+		killall -KILL -u $userdel
+	else
+		echo "Process abort"
+else
+	echo "User does not exist or not connect"
+fi
