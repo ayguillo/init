@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "entrer un nom d'utilisateur a supprimer : " userd
+read -p "Entrer un nom d'utilisateur a supprimer : " userd
 
 if [ -z $userd ]
 then
@@ -14,13 +14,19 @@ then
 	exit
 fi
 
+if [ "$userd" == "root" ]
+then
+	echo "No. Just. No. I am root."
+	exit
+fi
+
 if [ -n "$(who | grep $userd)" ]
 then
 	read -p "User $userd delete ? Confirm whit y/n : " confirm
 	if [ "$confirm" == "y" ]
 	then
 		sudo passwd -l toto
-		killall -KILL -u $userd
+		sudo killall -KILL -u $userd
 		sudo userdel -r $userd
 		echo "user $userd deleted"
 		exit

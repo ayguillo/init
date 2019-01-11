@@ -1,1 +1,1 @@
-sudo /etc/init.d/ssh start
+ssh user@10.12.1.102
