@@ -1,0 +1,32 @@
+#!/bin/bash
+
+read -p "Quel dossier cherchez-vous ? " dir
+
+if [ -z $dir ]
+then
+	echo "Argument non valide indiquer un nom de dossier"
+	exec $0
+fi
+
+if [ -n "$(find /home -type d -name $dir)" ]
+then
+	echo "Dossier trouve !"
+	if [ "$(pwd)" == "$(find /home -name $dir)" ]
+	then
+		echo "Vous etes dans le dossier recherche"
+	else
+		read -p "Voulez vous y accedez ? o/n " confirm
+		if [ "$confirm" == "o" ]
+		then
+			cd $(find /home -name $dir)
+			echo "Vous etes arrives"
+			exec $SHELL
+		else
+			echo "Programme fini"
+			exit
+		fi
+	fi
+else
+	echo "Aucun dossier de ce nom existe"
+	exit
+fi
