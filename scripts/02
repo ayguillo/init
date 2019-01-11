@@ -20,7 +20,7 @@ then
 	if [ "$confirm" == "y" ]
 	then
 		sudo passwd -l toto
-		kill -9 -1 $user;
+		killall -KILL -u $userd
 		sudo userdel -r $userd
 		echo "user $userd deleted"
 		exit
