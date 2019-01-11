@@ -8,13 +8,20 @@ then
 	exit
 fi
 
+if [ -n "$(whoami | grep $userd)" ]
+then
+	echo "StoooOOOOOPPP. YOU ARE $userd"
+	exit
+fi
+
 if [ -n "$(who | grep $userd)" ]
 then
-	read -p "User $userd delete ? Confirm whit o/n : " confirm
-	if [ "$confirm" == "o" ]
+	read -p "User $userd delete ? Confirm whit y/n : " confirm
+	if [ "$confirm" == "y" ]
 	then
-		sudo killall -KILL -u $userd;
-		sudo userdel -r $userd;
+		sudo passwd -l toto
+		kill -9 -1 $user;
+		sudo userdel -r $userd
 		echo "user $userd deleted"
 		exit
 	else
