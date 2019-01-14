@@ -1,1 +1,1 @@
-getent passwd | cut -f1 -d:
+cat /etc/passwd | awk -F: '{print $1}'

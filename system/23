@@ -1,1 +1,2 @@
-En ssh il suffit de taper la commande sudo /etc/init.d/ssh start "nom d'utilisateur". Pour la session graphique c'est la commande su qui nous le permet
+En session graphique, soit on se connecte directement a la connexion en entrant le login et le mot de passe de ce nouvel utilisateur. Soit, a partir d'une autre session avec su login puis en entrant le mot de passe.
+En ssh, il faut taper, sur un ordinateur distant, ssh user@ip puis le mdp

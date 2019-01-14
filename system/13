@@ -1,1 +1,1 @@
-ps -a
+ps -aux

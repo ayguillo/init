@@ -25,7 +25,7 @@ then
 	read -p "User $userd delete ? Confirm whit y/n : " confirm
 	if [ "$confirm" == "y" ]
 	then
-		sudo passwd -l toto
+		sudo passwd -l $userd
 		sudo killall -KILL -u $userd
 		sudo userdel -r $userd
 		echo "user $userd deleted"

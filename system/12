@@ -1,1 +1,1 @@
-ls -alsh /var
+du -h /var
